@@ -3,7 +3,7 @@ require_dependency 'application'
 class ProductAccessoriesExtension < Spree::Extension
   version "1.0"
   description "Adds accessories to products using a self-referential habtm association"
-  url "http://github.com/eastmedia/spree-accessories"
+  url "http://github.com/eastmedia/spree-product-accessories"
 
   def self.require_gems(config)
     config.gem "thoughtbot-factory_girl", :lib => "factory_girl", :source => "http://gems.github.com"
