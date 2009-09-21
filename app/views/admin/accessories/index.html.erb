@@ -1,0 +1,23 @@
+<% if @accessories.blank? %>
+  <p>
+    You have not added any accessories yet.
+  </p>
+
+<% else %>
+  <table id="accessories">
+    <tr>
+      <th>Name</th>
+      <th></th>
+    </tr>
+    <%= render :partial => 'accessory', :collection => @accessories %>
+  </table>
+<% end %>
+
+<p>
+  Select accessories from the list below:
+</p>
+
+<% form_for :product, :url => add_admin_product_accessories_url(:product_id => @product.id), :method => :post do |f| %>
+  <%= f.collection_select(:accessory_ids, Product.all.sort_by(&:name), :id, :name, {}, :multiple => true, :size => 5) %>
+  <%= f.submit 'Add' %>
+<% end %>
